@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>CSS Transformacija,tranzicija i animacija</title>
+
+          <style>
+                    div {
+                              display: block;
+                              transform-origin: center center;
+                              background-color: #050210;
+
+                    }
+
+                    #container {
+                              transform-origin: center center;
+                              width: 600px;
+                              height: 600px;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              overflow: hidden;
+                              position: relative;
+                              left: 31%;
+                              margin-top: 6%;
+                    }
+
+                    .circle {
+                              border-radius: 60%;
+                              background-color: #160d36;
+                              width: 300px;
+                              height: 300px;
+                              position: absolute;
+                              opacity: 0;
+                              animation: scaleIn 2s infinite;
+                    }
+
+                    .circle-1 {
+
+                              position: absolute;
+                              top: 21%;
+                              left: 21%;
+                              width: 350px;
+                              height: 350px;
+                    }
+
+                    .circle-2 {
+
+                              content: "";
+                              border-radius: 100%;
+                              position: absolute;
+                              top: 25.1%;
+                              left: 25%;
+
+
+                              width: 300px;
+                              height: 300px;
+                              background-color: #050210;
+
+                    }
+
+
+
+                    .circle-1::before {
+                              content: "";
+                              border-radius: 100%;
+                              position: absolute;
+                              top: 0;
+                              left: 0;
+                              width: 100%;
+                              height: 100%;
+
+                    }
+
+
+
+                    .circle-1::before {
+                              background: linear-gradient(0deg, #fb5dad 0%, #55fb9f 50%, #b97aff 100%);
+                              box-shadow: 35px 0px 100px -35px #55fb9f, 0px 35px 100px -35px #fb5dad, 0px -35px 100px -35px #b97aff, -35px 0px 100px -35px #55fb9f;
+                              animation: rotate 1s 0s reverse linear infinite;
+                    }
+
+                    @keyframes scaleIn {
+                              from {
+                                        transform: scale(.07, .07);
+                                        opacity: 1;
+                              }
+
+                              to {
+                                        transform: scale(1, 1);
+                                        opacity: 0.3;
+                              }
+                    }
+
+
+                    @keyframes rotate {
+                              0% {
+                                        transform: rotateZ(0deg) scaleX(1) scaleY(1);
+                              }
+
+                              50% {
+                                        transform: rotateZ(-180deg) scaleX(1) scaleY(1);
+                              }
+
+                              100% {
+                                        transform: rotateZ(-360deg) scaleX(1) scaleY(1);
+                              }
+                    }
+          </style>
+</head>
+
+<body>
+          <div id="container">
+                    <div class="circle-1"></div>
+                    <div class="circle-2"></div>
+                    <div class="circle" style="animation-delay: 0s"></div>
+                    <div class="circle" style="animation-delay: 1s"></div>
+                    <div class="circle" style="animation-delay: 2s"></div>
+                    <div class="circle" style="animation-delay: 3s;"></div>
+
+
+          </div>
+
+</body>
+
+</html>
